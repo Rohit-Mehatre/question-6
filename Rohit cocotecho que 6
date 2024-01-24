@@ -1,0 +1,68 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <vector>
+#include <algorithm>
+#include <map>
+
+using namespace std;
+
+struct Review {
+    string reviewerName;
+    string reviewType;
+    tm reviewDate;
+};
+
+struct Topic {
+    string title;
+    vector<Review> reviews;
+};
+
+void printReviewers(const vector<Topic>& topics, const string& reviewType, int month) {
+    map<string, int> reviewersCount;
+
+    for (const auto& topic : topics) {
+        for (const auto& review : topic.reviews) {
+            if (review.reviewType == reviewType) {
+                tm* date = localtime(&mktime(review.reviewDate));
+                if (date->tm_mon == month) {
+                    reviewersCount[review.reviewerName]++;
+                }
+            }
+        }
+    }
+   if(reviewCount.empty()){
+       cout << "No" << reviewType <<"No Review Found This Month"<< endl;
+   }
+   
+int main(){
+    vector<Topic> topics;
+    
+    for(int i=0; i<20; ++i){
+        Topic topic;
+        topic.title = "Topic" <<endl;
+        
+    }
+    for(int j=0; j<30; ++j){
+        Review review;
+        review.reviewName = "User" <<endl;
+    }
+
+}  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
